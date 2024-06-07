@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" class="weather" />
+    <button type="submit" class="result">Search</button>
+    <div class="temp"></div>
+    <div class="wind"></div>
+    <div class="disc"></div>
+
+    <script>
+      let inp = document.querySelector(".weather");
+      let result = document.querySelector(".result");
+      let temp = document.querySelector(".temp");
+      let wind = document.querySelector(".wind");
+      let disc = document.querySelector(".disc");
+      let url = `http://api.weatherstack.com/current?access_key=8f2c52c9dc9bde15f603a2542edb7c88&query=`;
+      async function fetchdata(city) {
+        let response = await fetch(url + city);
+        let data = await response.json();
+        console.log(inp.value);
+        console.log(data);
+        temp.innerHTML= data.current.temperature;
+        wind.innerHTML = data.current.wind_speed;
+        disc.innerHTML=data.current.weather_descriptions;
+      }
+      result.addEventListener("click", () => {
+        fetchdata(inp.value);
+      });
+    </script>
+              
+  </body>
+</html>

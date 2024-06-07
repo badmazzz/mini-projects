@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Webpage with Table, Column, and Row Span</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Task ID</th>
+                <th colspan="2">Task Description</th>
+                <th>Assignee</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">T1</td>
+                <td>Project Kickoff</td>
+                <td>Client Meeting</td>
+                <td>John Cena</td>
+            </tr>
+            <tr>
+                <td colspan="2">Prepare Project Proposal</td>
+                <td>Virat Kohli</td>
+            </tr>
+            <tr>
+                <td>T2</td>
+                <td rowspan="2">Design Phase</td>
+                <td>Create Wireframes</td>
+                <td>M S Dhoni</td>
+            </tr>
+            <tr>
+                <td>Review Design Concepts</td>
+                <td>Emily Davis</td>
+                <td>Michael Stark</td>
+            </tr>
+            <tr>
+                <td colspan="2">T3</td>
+                <td>Develop Prototype</td>
+                <td>David Warner</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

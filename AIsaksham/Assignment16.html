@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration Form</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        color: #343a40;
+      }
+      form {
+        max-width: 600px;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #212529; 
+      }
+      th {
+        background-color: #343a40; 
+        color: #fff;
+      }
+      input[type="submit"] {
+        background-color: #343a40; 
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #1d2124;
+      }
+      a {
+        color: #007bff;
+      }
+      a:hover {
+        color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="#" method="post">
+        <h1 class="text-center">Event Registration Form</h1>
+
+        <h2>Participant Information</h2>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            name="fullName"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="gender"
+              value="male"
+              id="male"
+            />
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="gender"
+              value="female"
+              id="female"
+            />
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input
+            type="text"
+            class="form-control"
+            id="dob"
+            name="dob"
+            placeholder="YYYY-MM-DD"
+            required
+          />
+        </div>
+
+        <h2>Event Preferences</h2>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="workshop"
+            value="workshop"
+            id="workshop"
+          />
+          <label class="form-check-label" for="workshop">Attend Workshop</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="networking"
+            value="networking"
+            id="networking"
+          />
+          <label class="form-check-label" for="networking"
+            >Attend Networking Session</label
+          >
+        </div>
+
+        <button type="submit" class="btn btn-dark my-3">Register</button>
+      </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

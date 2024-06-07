@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1></h1>
+    <p></p>
+    <button type="submit">New</button>
+    <a
+      class="twitter-share-button"
+      href="https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20website:%20&url=https%3A%2F%2Fyourwebsite.com"
+      data-size="large"
+    >
+      Tweet
+    </a>
+
+    <script>
+      let h1 = document.querySelector("h1");
+      let p = document.querySelector("p");
+      let btn = document.querySelector("button");
+      let url = `https://api.quotable.io/random`;
+      async function fetchData(url) {
+        let response = await fetch(url);
+        let data = await response.json();
+        console.log(data);
+        h1.innerHTML = data.content;
+        p.innerHTML = data.author;
+      }
+      btn.addEventListener("click", () => {
+        fetchData(url);
+      });
+    </script>
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
+  </body>
+</html>

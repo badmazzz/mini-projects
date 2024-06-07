@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+</head>
+<body>
+  <input type="text" placeholder="Add your task" class="todo" />
+  <button type="button" onclick="handleClick()">Add</button>
+
+  <div class="tasks"></div>
+
+  <script>
+    // JavaScript code will go here<script>
+  let todo = document.querySelector(".todo");
+  let tasks = document.querySelector(".tasks");
+  let todoList = [];
+
+  // Check if there is data in local storage
+  if (localStorage.getItem("todoList")) {
+    todoList = JSON.parse(localStorage.getItem("todoList"));
+    displayTasks();
+  }
+
+  function handleClick() {
+    let todoValue = todo.value;
+    todoList.push(todoValue);
+    saveTodoListToLocalStorage();
+    todo.value = "";
+    displayTasks();
+  }
+
+  function displayTasks() {
+    let listHTML = "";
+    for (let i = 0; i < todoList.length; i++) {
+      const element = todoList[i];
+      const html = `<p>
+                    ${element}
+                    <button onclick="
+                    todoList.splice(${i},1);
+                    saveTodoListToLocalStorage();
+                    displayTasks();
+                    ">
+                    Delete</button>
+                    </p>`;
+      listHTML += html;
+    }
+    tasks.innerHTML = listHTML;
+  }
+
+  function saveTodoListToLocalStorage() {
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+  }
+</script>
+
+  </script>
+</body>
+</html>

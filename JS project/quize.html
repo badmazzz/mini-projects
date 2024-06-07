@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #quiz-container {
+        max-width: 600px;
+        text-align: center;
+      }
+
+      .btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        color: black;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="quiz-container">
+      <h1>Quiz App</h1>
+      <div id="question-container"></div>
+      <div id="answer-buttons" class="btn-container"></div>
+      <button id="next-button" class="btn" onclick="nextQuestion()">
+        Next
+      </button>
+    </div>
+
+    <script>
+      let questions = [
+        {
+          question: "Is Coding Ninjas the best online learning platform?",
+          answers: [
+            { option: "For Sure!", answer: true },
+            { option: "No, not at all.", answer: false },
+          ],
+        },
+        {
+          question: "What is better if you wish to achieve success?",
+          answers: [
+            { option: "Hard Work", answer: false },
+            { option: "Smart Work", answer: true },
+          ],
+        },
+        {
+          question: "Complete the phrase: Time and ___ wait for none.",
+          answers: [
+            { option: "Batman", answer: false },
+            { option: "Tide", answer: true },
+          ],
+        },
+      ];
+      let que = document.getElementById("question-container");
+      let answer = document.getElementById("answer-buttons");
+      let next = document.getElementById("next-button");
+      let score = 0;
+
+      currentQuestion = 0;
+      let startquiz = () => {
+        console.log("Start");
+        next.classList.add("hide");
+        showque();
+      };
+
+      let showque = () => {
+        que.innerHTML = questions[currentQuestion].question;
+        next.classList.add("hide");
+        removeChild();
+        for (let i = 0; i < questions[currentQuestion].answers.length; i++) {
+          const element = questions[currentQuestion].answers[i];
+          const button = document.createElement("button");
+          button.innerText = element.option;
+          button.classList.add("btn");
+          button.addEventListener("click", () => selectAnswer(element));
+          answer.appendChild(button);
+        }
+      };
+      let removeChild = () => {
+        while (answer.firstChild) {
+          answer.removeChild(answer.firstChild);
+        }
+      };
+      let selectAnswer = (answers) => {
+        if (answers.answer) {
+          score++;
+          console.log("True", score);
+        } else {
+          console.log("False");
+        }
+        const buttons = answer.querySelectorAll(".btn");
+        buttons.forEach((button) => {
+          button.disabled = true;
+          if (button.innerText === answers.option) {
+            button.style.backgroundColor = answers.answer
+              ? "rgb(0, 164, 9)"
+              : "rgb(255, 94, 94)";
+          }
+        });
+        next.classList.remove("hide");
+      };
+      let nextQuestion = () => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) showque();
+        else
+          alert(
+            "Quize completed!!!. Your score is " +
+              score +
+              " Out of " +
+              questions.length
+          );
+      };
+      startquiz();
+    </script>
+  </body>
+</html>

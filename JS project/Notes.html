@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <style>
+      textarea {
+        font-size: large;
+        margin-bottom: 10px;
+      }
+
+      .delete-btn {
+        background-color: #ff6666;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="submit" class="btn">Add notes</button>
+    <div class="textarea">
+    </div>
+
+    <script>
+      let btn = document.querySelector(".btn");
+
+      btn.addEventListener("click", () => {
+        let textarea = document.querySelector(".textarea");
+        let text = document.createElement("textarea");
+        text.cols = 50;
+        text.rows = 10;
+        text.placeholder = "Enter your text...";
+        let delbtn = document.createElement("button");
+        delbtn.innerHTML = "Delete";
+        delbtn.classList = "delete-btn";
+        delbtn.addEventListener("click", () => {
+          textarea.removeChild(text);
+          textarea.removeChild(delbtn);
+        });
+
+        textarea.appendChild(text);
+        textarea.appendChild(delbtn);
+      });
+    </script>
+  </body>
+</html>
